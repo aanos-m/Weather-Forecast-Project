@@ -1,15 +1,16 @@
 let weather = {
     apiKey: "2aa8b532b9275f9e9c13107c52c8fd25",
-    cnt : 7,
+
+    // showDiv : function(){
+    //     document.getElementById('welcomeDiv').style.display = "block";
+    // }, 
 
     // forecastWeather is used to display the 7 day forcast 
     forcastWeather: function(city){
         fetch(
-            "https://api.openweathermap.org/data/2.5/forecast/daily?q="
+            "https://api.openweathermap.org/data/2.5/forecast?q="
             + city
-            + "&units=imperial&cnt=" 
-            + 7 
-            + "&appid="
+            + "&units=imperial&appid="
             + this.apiKey
         )
         .then((reponse) => response.json())
@@ -17,9 +18,10 @@ let weather = {
     },
 
     forcastWeatherHover: function(data){
-
+            
     },
 
+    
     //fetchWeather function fetches the basic weather attibutes and displays them
     //it calls displayWeather function to display the chosen attributes 
     fetchWeather: function(city){
@@ -57,16 +59,19 @@ let weather = {
     }
 };
 
-document
-    .querySelector(".search button")
-    .addEventListener("click", function (){
+document.querySelector(".search button").addEventListener("click", function (){
         weather.search();
 });
 
+//for the enter button on keyboard
 document.querySelector(".search-bar").addEventListener("keyup", function(event) {
     if(event.key == "Enter"){
         weather.search();
     }
 })
 
-// weather.fetchWeather("Dallas");
+// document.querySelector(".hover-btn").addEventListener("click", function(){
+//     weather.showDiv();
+// });
+
+weather.fetchWeather("Dallas");
