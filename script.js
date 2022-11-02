@@ -1,5 +1,27 @@
 let weather = {
     apiKey: "2aa8b532b9275f9e9c13107c52c8fd25",
+    cnt : 7,
+
+    // forecastWeather is used to display the 7 day forcast 
+    forcastWeather: function(city){
+        fetch(
+            "https://api.openweathermap.org/data/2.5/forecast/daily?q="
+            + city
+            + "&units=imperial&cnt=" 
+            + 7 
+            + "&appid="
+            + this.apiKey
+        )
+        .then((reponse) => response.json())
+        .then((data) => this.forcastWeatherHover(data))
+    },
+
+    forcastWeatherHover: function(data){
+
+    },
+
+    //fetchWeather function fetches the basic weather attibutes and displays them
+    //it calls displayWeather function to display the chosen attributes 
     fetchWeather: function(city){
         fetch(
             "https://api.openweathermap.org/data/2.5/weather?q=" 
@@ -21,13 +43,13 @@ let weather = {
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png" ;
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°F";
-        document.querySelector(".humidity").innerText = "humidity: " + humidity + "%";
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
 
         document.querySelector(".weather").classList.remove("loading");
-
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
     },
+
     // this function is used for the "enter" button, type desried city in search bar
     // and press enter, the results will show
     search: function(){
@@ -47,5 +69,4 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
     }
 })
 
-
-weather.fetchWeather("Denver");
+// weather.fetchWeather("Dallas");
