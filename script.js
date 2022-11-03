@@ -6,19 +6,29 @@ let weather = {
     // }, 
 
     // forecastWeather is used to display the 7 day forcast 
-    forcastWeather: function(city){
+    showAttributeWeather: function(city){
         fetch(
-            "https://api.openweathermap.org/data/2.5/forecast?q="
-            + city
+            "https://api.openweathermap.org/data/2.5/weather?q=" 
+            + city 
             + "&units=imperial&appid="
             + this.apiKey
         )
-        .then((reponse) => response.json())
-        .then((data) => this.forcastWeatherHover(data))
+        .then((response) => response.json())
+        .then((data) => this.AttributeWeather(data))
     },
 
-    forcastWeatherHover: function(data){
-            
+    AttributeWeather: function(data){
+        const { name } = data;
+        const { icon, description } = data.weather[0];
+        const { temp, humidity } = data.main;
+        const { speed } = data.wind;
+        console.log(name, icon, description, temp, humidity, speed);
+
+        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
+
+        document.querySelector("#testA").classList.remove("loading");
+        // document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
     },
 
     
@@ -45,8 +55,8 @@ let weather = {
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png" ;
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°F";
-        document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-        document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
+        // document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+        // document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
 
         document.querySelector(".weather").classList.remove("loading");
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
@@ -70,8 +80,12 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
     }
 })
 
+// document.querySelector("#testA").addEventListener("click", function (){
+//     weather.AttributeWeather();
+// });
+
+
 // document.querySelector(".hover-btn").addEventListener("click", function(){
 //     weather.showDiv();
 // });
-
 weather.fetchWeather("Dallas");
