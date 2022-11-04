@@ -1,25 +1,30 @@
 let weather = {
     apiKey: "2aa8b532b9275f9e9c13107c52c8fd25",
 
-    // showDiv : function(){
-    //     document.getElementById('welcomeDiv').style.display = "block";
-    // }, 
-
     // forecastWeather is used to display the 7 day forcast 
-    forcastWeather: function(city){
-        fetch(
-            "https://api.openweathermap.org/data/2.5/forecast?q="
-            + city
-            + "&units=imperial&appid="
-            + this.apiKey
-        )
-        .then((reponse) => response.json())
-        .then((data) => this.forcastWeatherHover(data))
-    },
+    // showAttributeWeather: function(city){
+    //     fetch(
+    //         "https://api.openweathermap.org/data/2.5/weather?q=" 
+    //         + city 
+    //         + "&units=imperial&appid="
+    //         + this.apiKey
+    //     )
+    //     .then((response) => response.json())
+    //     .then((data) => this.AttributeWeather(data))
+    // },
+    // AttributeWeather: function(data){
+    //     const { name } = data;
+    //     const { icon, description } = data.weather[0];
+    //     const { temp, humidity } = data.main;
+    //     const { speed } = data.wind;
+    //     console.log(name, icon, description, temp, humidity, speed);
 
-    forcastWeatherHover: function(data){
-            
-    },
+    //     document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
+    //     document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
+
+    //     document.querySelector("#testA").classList.remove("loading");
+    //     // document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
+    // },
 
     
     //fetchWeather function fetches the basic weather attibutes and displays them
@@ -70,8 +75,12 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
     }
 })
 
+// document.querySelector("#testA").addEventListener("click", function (){
+//     weather.AttributeWeather();
+// });
+
+
 // document.querySelector(".hover-btn").addEventListener("click", function(){
 //     weather.showDiv();
 // });
-
 weather.fetchWeather("Dallas");

@@ -14,7 +14,14 @@
     <script src = "./script.js" defer> </script>
 
 </head>
-<body>
+<body> 
+    <div>
+        <a tabindex="1" class="testA">Weather Attribute</a>
+        <div class="hiddendiv" id="testA">Weather Attributes
+            <!-- <div class="humidity">Humidity: 60%</div>
+            <div class= "wind">Wind speed: 6.2 km'h</div> -->
+        </div>
+    </div>
     <div class = "card">
         <div class="search">
             <input type = "text" class ="search-bar" placeholder="Search">
@@ -33,16 +40,15 @@
             <h1 class = "temp">51°C</h1>
             <div class="flex">
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-                <div class="description"> Cloudy</div>
+                <div class="description">Cloudy</div>
             </div>
             <div class="humidity">Humidity: 60%</div>
             <div class= "wind">Wind speed: 6.2 km'h</div>
-
-            <button class = "hover-btn" type="button" value="Show Div" onclick="showDiv()">More Info</button>  
         </div>
-
-        <div id="'welcomeDiv" style="display: none;" >Welcome</div>
     </div>
-    
+    <div>
+        <a tabindex="2" class="testB">Weather Forecast</a>
+        <div class="hiddendiv" id="testB">Weather Forecast</div>
+    </div>
 </body>
 </html>
