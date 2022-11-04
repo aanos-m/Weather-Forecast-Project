@@ -14,7 +14,35 @@
     <script src = "./script.js" defer> </script>
 
 </head>
-<body>
+<body> 
+    <div>
+        <a tabindex="1" class="testA">Weather History</a>
+        <div class="hiddendiv" id="testA">
+            <div class= "hist_time">Weather at </div>
+            <div class= "hist_temp">°F</div>
+            <div class= "hist_temp_min">Lowest: °F</div>
+            <div class= "hist_temp_max">Highest: °F</div>
+            <div class= "hist_feels_like">Feels like: °F</div>
+        </div>
+    </div>
+    <div>
+        <a tabindex="1" class="testA">Weather Attribute</a>
+        <div class="hiddendiv" id="testA">
+                <div class= "temp_min">Lowest: °F</div>
+                <div class= "temp_max">Highest: °F</div>
+                <div class= "feels_like">Feels like: °F</div>
+
+                <div class="humidity">Humidity: 60%</div>
+                <div class= "wind">Wind speed: 6.2 km'h</div>
+
+
+                <div class= "sunrise">sunrise:</div>
+                <div class= "sunset">sunset: </div>
+
+                <div class= "pressure">Pressure: </div>
+                <div class= "visibilty">Visibility: </div>   
+        </div>
+    </div>
     <div class = "card">
         <div class="search">
             <input type = "text" class ="search-bar" placeholder="Search">
@@ -33,16 +61,19 @@
             <h1 class = "temp">51°C</h1>
             <div class="flex">
                 <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-                <div class="description"> Cloudy</div>
+                <div class="description">Cloudy</div>
             </div>
-            <div class="humidity">Humidity: 60%</div>
-            <div class= "wind">Wind speed: 6.2 km'h</div>
-
-            <button class = "hover-btn" type="button" value="Show Div" onclick="showDiv()">More Info</button>  
         </div>
-
-        <div id="'welcomeDiv" style="display: none;" >Welcome</div>
     </div>
-    
+    <div>
+        <a tabindex="2" class="testB">Weather Forecast</a>
+        <div class="hiddendiv" id="testB">
+            <div></div>
+        </div>
+    </div>
+    <div>
+        <a tabindex="2" class="testB">Weather Alert</a>
+        <div class="hiddendiv" id="testB">Weather Alert</div>
+    </div>
 </body>
 </html>
